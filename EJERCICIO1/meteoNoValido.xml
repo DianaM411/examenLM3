@@ -3,11 +3,10 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="https://www.w3schools.com reglas.xsd">
 
-<comunidad nombreComunidad ="Madrid">
-<provincia nombreProvincia ="Madrid">
+    <comunidad nombreComunidad ="Madrid">
+        <provincia nombreProvincia ="Madrid">
 
-</provincia>
-
-</comunidad>
+        </provincia>
+    </comunidad>
 
 </meteo>

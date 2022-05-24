@@ -4,11 +4,22 @@ targetNamespace="https://www.w3schools.com"
 xmlns="https://www.w3schools.com"
 elementFormDefault="qualified">
 
-<!-- definition of simple elements -->
+<!-- definimos elementos simples -->
 <xs:element name="fecha" type="xs:date"/>
 <xs:element name="tempMax" type="xs:decimal"/>
 <xs:element name="tempMin" type="xs:decimal"/>
-<xs:element name="probLluvia" type="xs:string"/>
+
+<!-- de probLluvia solo se puede elegir entre 0 y 100% -->
+<xs:element name="probLluvia">
+  <xs:simpleType>
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+
+<!-- de avisoRiesgo solo se puede elegir entre estos 4 valores -->
 <xs:element name="avisoRiesgo">
     <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -21,22 +32,11 @@ elementFormDefault="qualified">
 </xs:element>
 
 
-<!-- definition of complex elements -->
-<xs:element name="prediccion">
-  <xs:complexType>
-    <xs:sequence>
-      <xs:element ref="fecha"/>
-      <xs:element ref="tempMax"/>
-      <xs:element ref="tempMin"/>
-      <xs:element ref="probLluvia"/>
-      <xs:element ref="avisoRiesgo" maxOccurs="10" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-</xs:element>
-
+<!-- definimos elementos complex -->
 <xs:element name="meteo">
   <xs:complexType>
     <xs:sequence>
+      <!-- las comunidades pueden no existir -->
       <xs:element ref="comunidad" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
@@ -45,8 +45,10 @@ elementFormDefault="qualified">
 <xs:element name="comunidad">
   <xs:complexType>
     <xs:sequence>
+      <!-- las provincias pueden no existir -->
       <xs:element ref="provincia" minOccurs="0"/>
     </xs:sequence>
+    <!-- el nombre de comunidad es obligatorio -->
     <xs:attribute name="nombreComunidad" type="xs:string" use="required"/>
   </xs:complexType>
 </xs:element>
@@ -56,6 +58,7 @@ elementFormDefault="qualified">
     <xs:sequence>
       <xs:element ref="poblacion" minOccurs="1"/>
     </xs:sequence>
+    <!-- el nombre de provincia es obligatorio -->
     <xs:attribute name="nombreProvincia" type="xs:string" use="required"/>
   </xs:complexType>
 </xs:element>
@@ -65,7 +68,20 @@ elementFormDefault="qualified">
     <xs:sequence>
       <xs:element ref="prediccion" minOccurs="1" maxOccurs="100"/>
     </xs:sequence>
-    <xs:attribute name="nombrePoblacion" type="xs:string" use="required"/>
+    <xs:attribute name="nombrePoblacion" type="xs:string"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="prediccion">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="fecha"/>
+      <xs:element ref="tempMax"/>
+      <xs:element ref="tempMin"/>
+      <xs:element ref="probLluvia"/>
+      <!-- pueden haber 0 o maximo 10 avisosRiesgo -->
+      <xs:element ref="avisoRiesgo" maxOccurs="10" minOccurs="0"/>
+    </xs:sequence>
   </xs:complexType>
 </xs:element>
 

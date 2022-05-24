@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <meteo xmlns="https://www.w3schools.com"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="https://www.w3schools.com reglas.xsd">
 
-<comunidad nombreComunidad ="Madrid">
-<provincia nombreProvincia ="Madrid">
+   <comunidad nombreComunidad ="Madrid">
+      <provincia nombreProvincia ="Madrid">
+         <poblacion nombrePoblacion ="Alcobendas">
 
-<poblacion nombrePoblacion ="Alcobendas">
+            <prediccion> 
+            <fecha>2022-03-01</fecha>
+            <tempMax>25</tempMax>
+            <tempMin>15</tempMin>
+            <probLluvia>20</probLluvia>
+            </prediccion>
 
-   <prediccion> 
-    <fecha>2022-03-01</fecha>
-    <tempMax>25</tempMax>
-    <tempMin>15</tempMin>
-    <probLluvia>si</probLluvia>
-   </prediccion>
+            <prediccion> 
+            <fecha>2022-03-02</fecha>
+            <tempMax>30</tempMax>
+            <tempMin>21</tempMin>
+            <probLluvia>0</probLluvia>
+            </prediccion>
 
-   <prediccion> 
-    <fecha>2022-03-02</fecha>
-    <tempMax>30</tempMax>
-    <tempMin>21</tempMin>
-    <probLluvia>no</probLluvia>
-   </prediccion>
-
-</poblacion>
-
-</provincia>
-
-</comunidad>
+         </poblacion>
+      </provincia>
+   </comunidad>
 
 </meteo>
