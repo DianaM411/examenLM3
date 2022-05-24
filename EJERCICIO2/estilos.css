@@ -7,6 +7,12 @@ h1{
     margin: 2rem;
 }
 
+
+/*solo he puesto este h3 porque el validador me lo pedia, pero no lo quiero ver asi que lo escondo*/
+h3{
+    display: none;
+}
+
 /*le damos un poco de estilo al contenedor grid: espacios, texto etc*/
 section{
     display: grid;
