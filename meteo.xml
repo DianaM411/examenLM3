@@ -3,16 +3,31 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="https://www.w3schools.com reglas.xsd">
 
-<poblacion>
+<comunidad nombreComunidad ="Madrid">
+<provincia nombreProvincia ="Madrid">
+
+<poblacion nombrePoblacion ="Madrid">
 
    <prediccion> 
-    <fecha></fecha>
-    <tempMax></tempMax>
-    <tempMin></tempMin>
-    <probLluvia></probLluvia>
+    <fecha>2022-03-01</fecha>
+    <tempMax>25</tempMax>
+    <tempMin>15</tempMin>
+    <probLluvia>si</probLluvia>
+    <avisoRiesgo>tormenta</avisoRiesgo>
+   </prediccion>
+
+   <prediccion> 
+    <fecha>2022-03-02</fecha>
+    <tempMax>30</tempMax>
+    <tempMin>21</tempMin>
+    <probLluvia>no</probLluvia>
     <avisoRiesgo></avisoRiesgo>
    </prediccion>
 
 </poblacion>
+
+</provincia>
+
+</comunidad>
 
 </meteo>

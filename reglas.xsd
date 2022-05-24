@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- definition of simple elements -->
+<xs:element name="fecha" type="xs:date"/>
+<xs:element name="tempMax" type="xs:decimal"/>
+<xs:element name="tempMin" type="xs:decimal"/>
+<xs:element name="probLluvia" type="xs:string"/>
+<xs:element name="avisoRiesgo" type="xs:string"/>
+
+<!-- definition of attributes -->
+<xs:attribute name="nombreComunidad" type="xs:string"/>
+<xs:attribute name="nombreProvincia" type="xs:string"/>
+<xs:attribute name="nombrePoblacion" type="xs:string"/>
+
+<!-- definition of complex elements -->
+<xs:element name="prediccion">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="fecha"/>
+      <xs:element ref="tempMax"/>
+      <xs:element ref="tempMin"/>
+      <xs:element ref="probLluvia"/>
+      <xs:element ref="avisoRiesgo"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
