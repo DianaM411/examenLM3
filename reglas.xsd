@@ -6,11 +6,20 @@
 <xs:element name="tempMax" type="xs:decimal"/>
 <xs:element name="tempMin" type="xs:decimal"/>
 <xs:element name="probLluvia" type="xs:string"/>
-<xs:element name="avisoRiesgo" type="xs:string"/>
+<xs:element name="avisoRiesgo"  maxOccurs="10" minOccurs="0">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="viento"/>
+        <xs:enumeration value="nieve"/>
+        <xs:enumeration value="tormentas"/>
+        <xs:enumeration value="huracan"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
 
 <!-- definition of attributes -->
-<xs:attribute name="nombreComunidad" type="xs:string"/>
-<xs:attribute name="nombreProvincia" type="xs:string"/>
+<xs:attribute name="nombreComunidad" type="xs:string" use="required"/>
+<xs:attribute name="nombreProvincia" type="xs:string" use="required"/>
 <xs:attribute name="nombrePoblacion" type="xs:string"/>
 
 <!-- definition of complex elements -->
@@ -25,3 +34,37 @@
     </xs:sequence>
   </xs:complexType>
 </xs:element>
+
+<xs:element name="meteo">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="comunidad"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="comunidad">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="provincia"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="provincia">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="poblacion"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="poblacion">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="prediccion"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>
