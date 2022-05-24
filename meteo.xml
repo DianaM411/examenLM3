@@ -6,14 +6,13 @@ xsi:schemaLocation="https://www.w3schools.com reglas.xsd">
 <comunidad nombreComunidad ="Madrid">
 <provincia nombreProvincia ="Madrid">
 
-<poblacion nombrePoblacion ="Madrid">
+<poblacion nombrePoblacion ="Alcobendas">
 
    <prediccion> 
     <fecha>2022-03-01</fecha>
     <tempMax>25</tempMax>
     <tempMin>15</tempMin>
     <probLluvia>si</probLluvia>
-    <avisoRiesgo>tormenta</avisoRiesgo>
    </prediccion>
 
    <prediccion> 
@@ -21,7 +20,6 @@ xsi:schemaLocation="https://www.w3schools.com reglas.xsd">
     <tempMax>30</tempMax>
     <tempMin>21</tempMin>
     <probLluvia>no</probLluvia>
-    <avisoRiesgo></avisoRiesgo>
    </prediccion>
 
 </poblacion>

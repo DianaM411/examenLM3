@@ -1,12 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="https://www.w3schools.com"
+xmlns="https://www.w3schools.com"
+elementFormDefault="qualified">
 
 <!-- definition of simple elements -->
 <xs:element name="fecha" type="xs:date"/>
 <xs:element name="tempMax" type="xs:decimal"/>
 <xs:element name="tempMin" type="xs:decimal"/>
 <xs:element name="probLluvia" type="xs:string"/>
-<xs:element name="avisoRiesgo"  maxOccurs="10" minOccurs="0">
+<xs:element name="avisoRiesgo">
     <xs:simpleType>
         <xs:restriction base="xs:string">
         <xs:enumeration value="viento"/>
@@ -17,10 +20,6 @@
     </xs:simpleType>
 </xs:element>
 
-<!-- definition of attributes -->
-<xs:attribute name="nombreComunidad" type="xs:string" use="required"/>
-<xs:attribute name="nombreProvincia" type="xs:string" use="required"/>
-<xs:attribute name="nombrePoblacion" type="xs:string"/>
 
 <!-- definition of complex elements -->
 <xs:element name="prediccion">
@@ -30,7 +29,7 @@
       <xs:element ref="tempMax"/>
       <xs:element ref="tempMin"/>
       <xs:element ref="probLluvia"/>
-      <xs:element ref="avisoRiesgo"/>
+      <xs:element ref="avisoRiesgo" maxOccurs="10" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 </xs:element>
@@ -38,7 +37,7 @@
 <xs:element name="meteo">
   <xs:complexType>
     <xs:sequence>
-      <xs:element ref="comunidad"/>
+      <xs:element ref="comunidad" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 </xs:element>
@@ -46,24 +45,27 @@
 <xs:element name="comunidad">
   <xs:complexType>
     <xs:sequence>
-      <xs:element ref="provincia"/>
+      <xs:element ref="provincia" minOccurs="0"/>
     </xs:sequence>
+    <xs:attribute name="nombreComunidad" type="xs:string" use="required"/>
   </xs:complexType>
 </xs:element>
 
 <xs:element name="provincia">
   <xs:complexType>
     <xs:sequence>
-      <xs:element ref="poblacion"/>
+      <xs:element ref="poblacion" minOccurs="1"/>
     </xs:sequence>
+    <xs:attribute name="nombreProvincia" type="xs:string" use="required"/>
   </xs:complexType>
 </xs:element>
 
 <xs:element name="poblacion">
   <xs:complexType>
     <xs:sequence>
-      <xs:element ref="prediccion"/>
+      <xs:element ref="prediccion" minOccurs="1" maxOccurs="100"/>
     </xs:sequence>
+    <xs:attribute name="nombrePoblacion" type="xs:string" use="required"/>
   </xs:complexType>
 </xs:element>
 
