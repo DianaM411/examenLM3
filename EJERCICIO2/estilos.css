@@ -1,0 +1,28 @@
+.uno{
+    background-color: aqua;
+}
+
+.dos{
+    background-color: rgb(8, 10, 70);
+}
+
+.tres{
+    background-color: rgb(102, 16, 130);
+}
+
+.cuatro{
+    background-color: rgb(224, 22, 231);
+}
+
+.cinco{
+    background-color: rgb(240, 35, 144);
+}
+
+.seis{
+    background-color: rgb(0, 121, 95);
+}
+
+section{
+    display: inline-grid;
+}
+
